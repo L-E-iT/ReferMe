@@ -1,0 +1,10 @@
+name: ReferMe
+version: 1.0.0
+author: BranFlakes
+main: com.branwidth.ReferMe.Main
+softdepend: [Vault]
+website: www.branwidth.com
+commands:
+      referme:
+               description: Base Command for ReferMe Plugin
+               usage: /referme

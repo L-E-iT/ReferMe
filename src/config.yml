@@ -1,0 +1,38 @@
+# Config for ReferMe Plugin
+
+Rewards:
+    # Set many or one to true to enable rewards
+    # Give player an item as reward
+    Item: false
+
+    # Give player a custom item as reward
+    # Not yet implemented, leave false
+    CustomItems: false
+
+    # Giver player a monetary rewards
+    Money: true
+
+    # Giver player PlayerPoints as a reward
+    # Not yet implemented, leave false
+    # https://dev.bukkit.org/projects/playerpoints
+    PlayerPoints: false
+
+# Configure Items to give to user
+Item:
+    # MC Item ID
+    Item: 1
+    # Amount to give player
+    Amount: 1
+
+# Configure Custom Item to give to a use
+CustomItems:
+# Not yet implemented
+
+# Configure the Money amount to give to a user
+Money:
+    Amount: 10
+
+# Configure the amount of PlayerPoints to give to a user
+PlayerPoints:
+    Amount: 10
+
