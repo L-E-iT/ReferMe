@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.io.File;
+import java.sql.SQLException;
 import java.util.UUID;
 
 
@@ -28,7 +29,7 @@ public class ReferMe implements CommandExecutor {
                     sendMenu(player);
                     break;
                 case "check":
-                    player.sendMessage("Check-self invoked");
+                    checkSelf(playerUUID);
                     break;
                 default:
                     sendMenu(player);
@@ -38,15 +39,13 @@ public class ReferMe implements CommandExecutor {
             String argPlayer = args[1];
             switch (argCommand){
                 case "thanks":
-                    player.sendMessage(argCommand);
-                    player.sendMessage(argPlayer);
-
-                    player.sendMessage("Thank-Other invoked");
-
+                    thankOther(playerUUID, argPlayer);
                     break;
                 case "check":
-                    player.sendMessage("Check-Other invoked");
+                    checkOther(argPlayer);
                     break;
+                case "top":
+                    checkTop(argPlayer);
                 default:
                     sendMenu(player);
             }
@@ -56,6 +55,11 @@ public class ReferMe implements CommandExecutor {
         return true;
     }
 
+    private void checkTop(Object argPlayer) throws SQLException {
+        int Count = (int)argPlayer;
+        Database.getTopReferrers(Count);
+    }
+
     private void sendMenu(Player player){
         player.sendMessage("§l§6Refer§r§cMe - §fReferral Plugin");
         player.sendMessage("§7-----------------------------------");
@@ -63,5 +67,18 @@ public class ReferMe implements CommandExecutor {
         player.sendMessage("§d>  §f/referme thanks [Player Name] §b- §7Thank a player for referring you");
         player.sendMessage("§d>  §f/referme check §b- §7Check the amount of players you have referred");
         player.sendMessage("§d>  §f/referme check [Player Name] §b- §7Check the amount of players another player has referred");
+        player.sendMessage("§d>  §f/referme top [#] §b- §7Check the top Referrers by amount");
+    }
+
+    private void checkSelf(UUID uuid){
+
+    }
+
+    private void checkOther(String referrerName){
+
+    }
+
+    private void thankOther(UUID referredUUID, String referrerName){
+
     }
 }
