@@ -3,12 +3,14 @@ package com.branwidth.ReferMe;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
+import java.io.File;
 import java.util.UUID;
 
-public class ReferMe implements CommandExecutor {
 
+public class ReferMe implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -16,8 +18,6 @@ public class ReferMe implements CommandExecutor {
         String playerName = player.getName();
         UUID playerUUID = player.getUniqueId();
         Integer argsLength = args.length;
-
-        Main.getPlugin().getLogger().info("Test");
 
         if (argsLength == 0) {
             sendMenu(player);
@@ -38,8 +38,14 @@ public class ReferMe implements CommandExecutor {
             String argPlayer = args[1];
             switch (argCommand){
                 case "thanks":
+                    player.sendMessage(argCommand);
+                    player.sendMessage(argPlayer);
+
+                    player.sendMessage("Thank-Other invoked");
+
                     break;
                 case "check":
+                    player.sendMessage("Check-Other invoked");
                     break;
                 default:
                     sendMenu(player);

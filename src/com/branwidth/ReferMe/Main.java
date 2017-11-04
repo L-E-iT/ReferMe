@@ -2,21 +2,28 @@ package com.branwidth.ReferMe;
 
 import net.milkbowl.vault.economy.Economy;
 import org.black_ixx.playerpoints.PlayerPoints;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
+import java.io.*;
 
 public class Main extends JavaPlugin {
     public static Economy econ = null;
     public static PlayerPoints playerPoints = null;
+    private File configf;
 
     @Override
     public void onEnable(){
         getLogger().info("Enabled ReferMe");
         // Create Config
         createFiles();
+        Database.getConnection();
+
+        if (Database.isConnected()) {
+            getLogger().info("Connected to database! - Creating Tables if they do not exist.");
+            Database.createDatabase();
+        }
+        // Create Database if it doesn't exist
 
         if (!setupEconomy() ) {
             getLogger().severe(String.format("[%s] - no Vault dependency found! Not using PlayerPoints", getDescription().getName()));
@@ -33,7 +40,6 @@ public class Main extends JavaPlugin {
 
         // Set Command
         getCommand("ReferMe").setExecutor(new ReferMe());
-
     }
 
 //    private boolean hookPlayerPoints() {
@@ -58,9 +64,10 @@ public class Main extends JavaPlugin {
         return econ != null;
     }
 
+
     private void createFiles() {
 
-        File configf = new File(getDataFolder(), "config.yml");
+        configf = new File(getDataFolder(), "config.yml");
 
         if (!configf.exists()) {
             configf.getParentFile().mkdirs();
@@ -68,10 +75,14 @@ public class Main extends JavaPlugin {
         }
     }
 
+
+
+
     @Override
     public void onDisable(){
         // Some text here for stopping the plugin
         getLogger().info("Disabled ReferMe");
+        Database.Disconnect();
     }
 
 
