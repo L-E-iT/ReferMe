@@ -56,15 +56,23 @@
       <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/branwidth/ReferMe/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="861">
-              <caret line="81" column="25" lean-forward="false" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+            <state relative-caret-position="317">
+              <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Disconnect#0;class#Database#0" expanded="false" />
-                <marker date="1509815525040" expanded="true" signature="1614:1793" ph="CREATE TABLE... IF" />
-                <marker date="1509815525040" expanded="true" signature="1834:1874" ph="CREATE TABLE... IF" />
-                <marker date="1509815525040" expanded="true" signature="1834:1921" ph="CREATE TABLE... IF" />
-                <marker date="1509815525040" expanded="true" signature="1834:1972" ph="CREATE TABLE... IF" />
+                <element signature="e#2391#2392#0" expanded="true" />
+                <element signature="e#2418#2419#0" expanded="true" />
+                <element signature="e#2537#2538#0" expanded="true" />
+                <element signature="e#2564#2565#0" expanded="true" />
+                <element signature="e#2603#2604#0" expanded="true" />
+                <element signature="e#2627#2628#0" expanded="true" />
+                <element signature="e#2780#2781#0" expanded="true" />
+                <element signature="e#2820#2821#0" expanded="true" />
+                <marker date="1509815858460" expanded="true" signature="1665:1844" ph="CREATE TABLE... IF" />
+                <marker date="1509815858460" expanded="true" signature="1885:1925" ph="CREATE TABLE... IF" />
+                <marker date="1509815858460" expanded="true" signature="1885:1972" ph="CREATE TABLE... IF" />
+                <marker date="1509815858460" expanded="true" signature="1885:2023" ph="CREATE TABLE... IF" />
               </folding>
             </state>
           </provider>
@@ -295,12 +303,12 @@
       <updated>1509579900242</updated>
       <workItem from="1509579904105" duration="8540000" />
       <workItem from="1509658472694" duration="5993000" />
-      <workItem from="1509811583986" duration="3938000" />
+      <workItem from="1509811583986" duration="4290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18471000" />
+    <option name="totallyTimeSpent" value="18823000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -498,15 +506,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/branwidth/ReferMe/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="81" column="25" lean-forward="false" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+        <state relative-caret-position="317">
+          <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Disconnect#0;class#Database#0" expanded="false" />
-            <marker date="1509815525040" expanded="true" signature="1614:1793" ph="CREATE TABLE... IF" />
-            <marker date="1509815525040" expanded="true" signature="1834:1874" ph="CREATE TABLE... IF" />
-            <marker date="1509815525040" expanded="true" signature="1834:1921" ph="CREATE TABLE... IF" />
-            <marker date="1509815525040" expanded="true" signature="1834:1972" ph="CREATE TABLE... IF" />
+            <element signature="e#2391#2392#0" expanded="true" />
+            <element signature="e#2418#2419#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2564#2565#0" expanded="true" />
+            <element signature="e#2603#2604#0" expanded="true" />
+            <element signature="e#2627#2628#0" expanded="true" />
+            <element signature="e#2780#2781#0" expanded="true" />
+            <element signature="e#2820#2821#0" expanded="true" />
+            <marker date="1509815858460" expanded="true" signature="1665:1844" ph="CREATE TABLE... IF" />
+            <marker date="1509815858460" expanded="true" signature="1885:1925" ph="CREATE TABLE... IF" />
+            <marker date="1509815858460" expanded="true" signature="1885:1972" ph="CREATE TABLE... IF" />
+            <marker date="1509815858460" expanded="true" signature="1885:2023" ph="CREATE TABLE... IF" />
           </folding>
         </state>
       </provider>

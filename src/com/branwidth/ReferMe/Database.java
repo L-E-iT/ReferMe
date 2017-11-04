@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Database {
@@ -70,14 +72,39 @@ public class Database {
         }
     }
 
-    //Methods:
-    //  setIsReferred()
-    //  getIsReferred()
-    //  createUser()
-    //  setReferredBy()
-    //  getReferredBy()
-    //  getPlayersReferred()
-    //  AddToPlayersReferred()
-    //  RemoveFromPlayersReferred()
-    //  getTopReferrers()
+    public void setIsReferred() {
+
+    }
+
+    public boolean getIsReferred() {
+        return true;
+    }
+
+    public void createUser() {
+
+    }
+
+    public void setReferredBy() {
+
+    }
+
+    public boolean getReferredBy() {
+        return true;
+    }
+
+    public int getPlayersReferred() {
+        return 0;
+    }
+
+    public void addToPlayersReferred() {
+
+    }
+
+    public void removeFromPlayersReferred() {
+
+    }
+
+    public ArrayList<String> getTopReferrers() {
+        return new ArrayList<>();
+    }
 }
