@@ -33,7 +33,7 @@ public class ReferMe implements CommandExecutor {
                     sendMenu(player);
                     break;
                 case "check":
-                    checkSelf(playerUUID);
+                    checkSelf(playerUUID, player);
                     break;
                 default:
                     sendMenu(player);
@@ -43,14 +43,14 @@ public class ReferMe implements CommandExecutor {
             Object argPlayer = args[1];
             switch (argCommand){
                 case "thanks":
-                    thankOther(playerUUID, argPlayer);
+                    thankOther(playerUUID, argPlayer, player);
                     break;
                 case "check":
                     checkOther(argPlayer, player);
                     break;
                 case "top":
                     try {
-                        checkTop(argPlayer);
+                        checkTop(argPlayer, player);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -69,8 +69,7 @@ public class ReferMe implements CommandExecutor {
         Map<String, Integer> topReferrers = Database.getTopReferrers(Count);
         Iterator it = topReferrers.entrySet().iterator();
 
-        player.sendMessage("§l§6Refer§r§cMe - §fReferral Plugin");
-        player.sendMessage("§7----§o§6Top Referrers§r§f-------------------------------");
+        player.sendMessage("§7----§o§6Top Referrers§r§f----------");
         while (it.hasNext()){
             Map.Entry pair = (Map.Entry)it.next();
             OfflinePlayer offlinePlayer =  Bukkit.getOfflinePlayer((UUID) pair.getKey());
@@ -90,15 +89,15 @@ public class ReferMe implements CommandExecutor {
         player.sendMessage("§d>  §f/referme top [#] §b- §7Check the top Referrers by amount");
     }
 
-    private void checkSelf(UUID uuid){
+    private void checkSelf(UUID uuid, Player player){
 
     }
 
-    private void checkOther(Object referrerName){
+    private void checkOther(Object referrerName, Player player){
 
     }
 
-    private void thankOther(UUID referredUUID, Object referrerName){
+    private void thankOther(UUID referredUUID, Object referrerName, Player player){
 
     }
 }
