@@ -10,7 +10,6 @@ import java.sql.Statement;
 
 public class Database {
     static String dbname = "data";
-    private static String connectionString = "jdbc:sqlite:database.db";
     private static Connection conn;
 
 
@@ -24,9 +23,6 @@ public class Database {
             }
         }
         try {
-//            if(conn != null && !conn.isClosed()){
-//                return conn;
-//            }
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:" + dataFolder);
             return conn;
@@ -38,16 +34,6 @@ public class Database {
         return null;
     }
 
-//    protected static void Connect() {
-//        if (!isConnected()) {
-//            try {
-//                conn = DriverManager.getConnection(connectionString);
-//                Main.getPlugin().getLogger().info("ReferMe Database Connection Established");
-//            } catch (SQLException e) {
-//                Main.getPlugin().getLogger().severe(e.getMessage());
-//            }
-//        }
-//    }
 
     protected static void Disconnect() {
         if (isConnected()) {
@@ -62,10 +48,6 @@ public class Database {
     protected static Boolean isConnected() {
         return (conn != null);
     }
-
-//    public static Connection getConnection() {
-//        return conn;
-//    }
 
 
     // Create Database From Nothing
@@ -87,4 +69,15 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    //Methods:
+    //  setIsReferred()
+    //  getIsReferred()
+    //  createUser()
+    //  setReferredBy()
+    //  getReferredBy()
+    //  getPlayersReferred()
+    //  AddToPlayersReferred()
+    //  RemoveFromPlayersReferred()
+    //  getTopReferrers()
 }
