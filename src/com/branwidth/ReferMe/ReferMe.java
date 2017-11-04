@@ -1,5 +1,7 @@
 package com.branwidth.ReferMe;
 
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -8,6 +10,8 @@ import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.UUID;
 
 
@@ -36,16 +40,20 @@ public class ReferMe implements CommandExecutor {
             }
         } else if (argsLength == 2) {
             String argCommand = args[0];
-            String argPlayer = args[1];
+            Object argPlayer = args[1];
             switch (argCommand){
                 case "thanks":
                     thankOther(playerUUID, argPlayer);
                     break;
                 case "check":
-                    checkOther(argPlayer);
+                    checkOther(argPlayer, player);
                     break;
                 case "top":
-                    checkTop(argPlayer);
+                    try {
+                        checkTop(argPlayer);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 default:
                     sendMenu(player);
             }
@@ -55,9 +63,21 @@ public class ReferMe implements CommandExecutor {
         return true;
     }
 
-    private void checkTop(Object argPlayer) throws SQLException {
+    private void checkTop(Object argPlayer, Player player) throws SQLException {
         int Count = (int)argPlayer;
-        Database.getTopReferrers(Count);
+        int Counti = 0;
+        Map<String, Integer> topReferrers = Database.getTopReferrers(Count);
+        Iterator it = topReferrers.entrySet().iterator();
+
+        player.sendMessage("§l§6Refer§r§cMe - §fReferral Plugin");
+        player.sendMessage("§7----§o§6Top Referrers§r§f-------------------------------");
+        while (it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            OfflinePlayer offlinePlayer =  Bukkit.getOfflinePlayer((UUID) pair.getKey());
+            String playerName = offlinePlayer.getName();
+            player.sendMessage("§d" + ++Counti + "§7: " + playerName + "§f| Players Referred - §7[§2" + pair.getValue() + "§7]");
+            it.remove();
+        }
     }
 
     private void sendMenu(Player player){
@@ -74,11 +94,11 @@ public class ReferMe implements CommandExecutor {
 
     }
 
-    private void checkOther(String referrerName){
+    private void checkOther(Object referrerName){
 
     }
 
-    private void thankOther(UUID referredUUID, String referrerName){
+    private void thankOther(UUID referredUUID, Object referrerName){
 
     }
 }
