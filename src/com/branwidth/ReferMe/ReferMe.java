@@ -5,15 +5,18 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.io.File;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
 
+
+//TODO Finish methods for commands
+//TODO Implement reward bonuses
+//TODO Add more config options
+//TODO Test each command case
 
 public class ReferMe implements CommandExecutor {
 
@@ -28,7 +31,7 @@ public class ReferMe implements CommandExecutor {
             sendMenu(player);
         } else if (argsLength == 1) {
             String argCommand = args[0];
-            switch (argCommand) {
+            switch (argCommand.toLowerCase()) {
                 case "help":
                     sendMenu(player);
                     break;
@@ -40,8 +43,8 @@ public class ReferMe implements CommandExecutor {
             }
         } else if (argsLength == 2) {
             String argCommand = args[0];
-            Object argPlayer = args[1];
-            switch (argCommand){
+            String argPlayer = args[1];
+            switch (argCommand.toLowerCase()){
                 case "thanks":
                     thankOther(playerUUID, argPlayer, player);
                     break;
@@ -50,10 +53,11 @@ public class ReferMe implements CommandExecutor {
                     break;
                 case "top":
                     try {
-                        checkTop(argPlayer, player);
+                        checkTop(Integer.parseInt(argPlayer), player);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
+                    break;
                 default:
                     sendMenu(player);
             }
@@ -63,13 +67,13 @@ public class ReferMe implements CommandExecutor {
         return true;
     }
 
-    private void checkTop(Object argPlayer, Player player) throws SQLException {
-        int Count = (int)argPlayer;
+    private void checkTop(int countNumber, Player player) throws SQLException {
+        int Count = countNumber;
         int Counti = 0;
         Map<String, Integer> topReferrers = Database.getTopReferrers(Count);
         Iterator it = topReferrers.entrySet().iterator();
 
-        player.sendMessage("§7----§o§6Top Referrers§r§f----------");
+        player.sendMessage("§7----§o§6Top Referrers§r§7----------");
         while (it.hasNext()){
             Map.Entry pair = (Map.Entry)it.next();
             OfflinePlayer offlinePlayer =  Bukkit.getOfflinePlayer((UUID) pair.getKey());
@@ -93,11 +97,11 @@ public class ReferMe implements CommandExecutor {
 
     }
 
-    private void checkOther(Object referrerName, Player player){
+    private void checkOther(String referrerName, Player player){
 
     }
 
-    private void thankOther(UUID referredUUID, Object referrerName, Player player){
+    private void thankOther(UUID referredUUID, String referrerName, Player player){
 
     }
 }
