@@ -30,7 +30,7 @@ CustomItems:
 
 # Configure the Money amount to give to a user
 Money:
-    Amount: 10
+    Amount: 100.00
 
 # Configure the amount of PlayerPoints to give to a user
 PlayerPoints:

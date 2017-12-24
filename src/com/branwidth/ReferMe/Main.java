@@ -26,7 +26,7 @@ public class Main extends JavaPlugin {
         // Create Database if it doesn't exist
 
         if (!setupEconomy() ) {
-            getLogger().severe(String.format("[%s] - no Vault dependency found! Not using PlayerPoints", getDescription().getName()));
+            getLogger().severe(String.format("[%s] - no Vault dependency found! Not using Economy", getDescription().getName()));
             getConfig().set("Rewards.Money", false);
             saveResource("config.yml", true);
             return;

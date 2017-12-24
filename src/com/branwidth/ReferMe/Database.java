@@ -143,12 +143,16 @@ public class Database {
     * @param uuid
     * */
     public static void createUser(UUID uuid) throws SQLException {
-        PreparedStatement pstmt = conn.prepareStatement("INSERT INTO playersReferred(uuid, isReferred, referredBy) VALUES(?,?,?)");
-        pstmt.setString(1, uuid.toString());
-        pstmt.setInt(2, 0);
-        pstmt.setString(3, null);
+        PreparedStatement pstmtA = conn.prepareStatement("INSERT INTO playersReferred(uuid, isReferred, referredBy) VALUES(?,?,?)");
+        pstmtA.setString(1, uuid.toString());
+        pstmtA.setInt(2, 0);
+        pstmtA.setString(3, null);
+        pstmtA.execute();
 
-        pstmt.execute();
+        PreparedStatement pstmtB = conn.prepareStatement("INSERT INTO playersData(uuid, playersReferred) VALUES(?,?)");
+        pstmtB.setString(1, uuid.toString());
+        pstmtB.setInt(2, 0);
+        pstmtB.execute();
     }
 
     /*
